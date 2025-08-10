@@ -126,3 +126,19 @@ function format_phone_to_tel($phone) {
     $tel = preg_replace('/(?!^)\+/', '', $tel);
     return 'tel:' . $tel;
 }
+
+function get_site_language(): string {
+    $uri = $_SERVER['REQUEST_URI'] ?? '';
+
+   // Если начинается с /en/ или точно равен /en
+    if (preg_match('#^/en(/|$)#', $uri)) {
+        return 'en_US';
+    }
+
+    return 'ru_RU';
+}
+
+function getLogoUrl() {
+	$custom_logo_id = get_theme_mod('custom_logo');
+	return wp_get_attachment_image_url($custom_logo_id, 'full');
+}

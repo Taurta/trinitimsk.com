@@ -2,6 +2,7 @@
 /**
  * @package trinitimsk
  */
+$lang = get_site_language();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -16,5 +17,45 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 	<header>
+		<div class="container header-container">
+			<div class="logo">
+				<a href="<?= $lang == 'en_US' ? '/en' : '/'; ?>">
+					<img src="<?= getLogoUrl(); ?>" alt="logo">
+				</a>
+			</div>
+			<div class="menu">
+				<div class="menu-item" onclick="smoothScrollToElement('#cases', 0)">
+					<?= $lang == 'en_US' ? 'About us' : 'О нас' ?>
+				</div>
+				<div class="menu-item" onclick="smoothScrollToElement('#cases', 0)">
+					<?= $lang == 'en_US' ? 'Items' : 'Товары' ?>
+				</div>
+				<div class="menu-item" onclick="smoothScrollToElement('#cases', 0)">
+					<?= $lang == 'en_US' ? 'Services' : 'Услуги' ?>
+				</div>
+				<div class="menu-item" onclick="smoothScrollToElement('#cases', 0)">
+					<?= $lang == 'en_US' ? 'Contacts' : 'Контакты' ?>
+				</div>
+			</div>
+			<div class="header-info">
+				<div class="langs">
+					<? if ($lang == 'en_US') :?>
+						<a href="/">RU</a>
+						<a class="active">EN</a>
+					<? else: ?>
+						<a class="active">RU</a>
+						<a href="/en">EN</a>
+					<? endif; ?>
+				</div>
+				<div class="header-contacts">
+					<a class="header-phone" href="<?= format_phone_to_tel('+7 (905) 510-75-75'); ?>">
+						+7 (905) 510-75-75
+					</a>
+					<a class="header-email" href="mailto:sale.triniti@yandex.ru">
+						sale.triniti@yandex.ru
+					</a>
+				</div>
+			</div>
+		</div>
 
 	</header>

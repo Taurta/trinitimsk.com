@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Текстовая страница
+ * Template Name: Текстовая запись
  * 
  * @package trinitimsk
  */

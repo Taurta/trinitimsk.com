@@ -13,6 +13,7 @@ body {
     font-display: swap;
     color: var(--text);
     font-weight: 400;
+    background-color: var(--bg);
 }
 
 #wpadminbar {
@@ -27,6 +28,125 @@ body {
 
 .container {
     width: 100%;
-    max-width: calc(1034 / 1200 * 100vw);
+    max-width: 1160px;
     margin: 0 auto;
+}
+
+header {
+    background-color: var(--bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 80px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+header .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    height: 100%;
+}
+
+.menu-item {
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--text);
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    border-color: var(--text);
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+}
+
+.langs {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.langs a {
+    color: #8b8b8b;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.langs a.active {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.header-contacts {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 9px;
+}
+
+.header-phone {
+    color: var(--text);
+    text-decoration: none;
+    line-height: 27px;
+    font-size: 20px;
+}
+
+.header-email {
+    color: var(--text);
+    text-decoration: none;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 600;
+    transition: var(--transition);
+    background-color: #b5eeba;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    padding: 0 26px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--text);
+}
+
+.cloud {
+    background-image: url(../imgs/cloud.svg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    aspect-ratio: 1/1;
+    opacity: 0.55;
 }
