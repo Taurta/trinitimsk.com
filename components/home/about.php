@@ -1,0 +1,105 @@
+<?
+// О нас на главной
+
+global $fields;
+?>
+
+<section id="about">
+    <div class="container about-container">
+        <div class="about-text">
+            <img src="<?= get_stylesheet_directory_uri() ?>/assets/imgs/green-logo.png" alt="Triniti">
+            <div class="about-text-line"></div>
+            <p><?= $fields['about_text']; ?></p>
+        </div>
+        <? if ($fields['about_cards']) : ?>
+            <div class="about-cards">
+                <? foreach ($fields['about_cards'] as $card) : ?>
+                    <div class="about-card">
+                        <img src="<?= $card['icon']; ?>" alt="<?= $card['title']; ?>">
+                        <h3>
+                            <?= $card['title']; ?>
+                        </h3>
+                        <p>
+                            <?= $card['text']; ?>
+                        </p>
+                    </div>
+                <? endforeach; ?>
+            </div>
+        <? endif; ?>
+        <div class="cloud" style="width: 723px; left: -190px; top: -190px;"></div>
+        <div class="cloud" style="width: 723px; right: -100px; top: -340px;"></div>
+    </div>
+</section>
+
+<style>
+    #about {
+        padding-top: 80px;
+        padding-bottom: 114px;
+        background-image: url(<?= get_stylesheet_directory_uri() . '/assets/imgs/about-bg.svg' ?>);
+        background-size: 1026px auto;
+        background-repeat: no-repeat;
+        background-position: 22% 70px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .about-container {
+        position: relative;
+    }
+
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .about-text-line {
+        height: 2px;
+        width: 100px;
+        background-color: var(--accent);
+    }
+
+    .about-text p {
+        max-width: 490px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    .about-cards {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+
+    .about-card {
+        padding: 110px 32px 40px;
+        height: 100%;
+        position: relative;
+        border-radius: 12px;
+        background-image: linear-gradient(0turn, rgba(25, 43, 41, 1) 0%, rgba(22, 33, 26, 1) 100%);
+    }
+
+    .about-card:nth-child(even){
+        background-image: linear-gradient(0turn, rgba(9, 13, 9, 0.75) 0%, rgba(27, 27, 27, 1) 100%);
+    }
+
+    .about-card img {
+        position: absolute;
+        top: 24px;
+        left: 32px;
+    }
+
+    .about-card h3 {
+        font-size: 22px;
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    .about-card p {
+        font-size: 15px;
+        font-weight: 300;
+    }
+</style>

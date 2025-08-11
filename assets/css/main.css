@@ -130,7 +130,7 @@ button {
     line-height: 1.55;
     font-weight: 600;
     transition: var(--transition);
-    background-color: #b5eeba;
+    background-color: var(--accent);
     outline: none;
     border: none;
     border-radius: 6px;
