@@ -14,6 +14,8 @@ $fields = get_fields();
 		<? require_once (get_template_directory() . '/components/home/about.php'); ?>
 		<? require_once (get_template_directory() . '/components/home/advantages.php'); ?>
 		<? require_once (get_template_directory() . '/components/home/products.php'); ?>
+
+		<? require_once (get_template_directory() . '/components/home/services.php'); ?>
 	</main>
 <?php
 get_footer();
