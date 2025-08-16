@@ -28,6 +28,7 @@ global $fields;
         <? endif; ?>
         <div class="cloud" style="width: 723px; left: -190px; top: -190px;"></div>
         <div class="cloud" style="width: 723px; right: -100px; top: -340px;"></div>
+        <img class="about-bg" src="<?= get_stylesheet_directory_uri() . '/assets/imgs/about-bg.svg' ?>" alt="bg">
     </div>
 </section>
 
@@ -35,12 +36,17 @@ global $fields;
     #about {
         padding-top: 80px;
         padding-bottom: 114px;
-        background-image: url(<?= get_stylesheet_directory_uri() . '/assets/imgs/about-bg.svg' ?>);
-        background-size: 1026px auto;
-        background-repeat: no-repeat;
-        background-position: 22% 70px;
         position: relative;
         z-index: 2;
+    }
+
+    .about-bg {
+        position: absolute;
+        left: -190px;
+        top: -30px;
+        z-index: -1;
+        width: 1026px;
+        opacity: 0.3;
     }
 
     .about-container {
@@ -65,6 +71,7 @@ global $fields;
         text-align: center;
         font-size: 20px;
         font-weight: 300;
+        margin: 0;
     }
 
     .about-cards {
