@@ -39,9 +39,10 @@ function initForm(e) {
                 r = await c.json();
             r.success
                 ? (showNotification("Заявка успешно отправлена!", "success"),
-                  ym(101143679, "reachGoal", e.getAttribute("data-action")),
+                  //ym(101143679, "reachGoal", e.getAttribute("data-action")),
                   e.classList.remove("disabled"),
                   e.reset(),
+                  resetInputs(e),
                   closePopup())
                 : showNotification(r.message, "error");
         });
@@ -53,6 +54,45 @@ function initForms() {
         e.forEach((e) => {
             initForm(e);
         });
+}
+
+function initCustomInputs() {
+    const form_inputs = document.querySelectorAll('.form-input');
+
+    if (!form_inputs.length) return;
+
+    form_inputs.forEach((form_input) => {
+        const input = form_input.querySelector('input');
+
+        input.addEventListener('focusin', () => {
+            form_input.classList.add('focus');
+        });
+
+        input.addEventListener('focusout', () => {
+            form_input.classList.remove('focus');
+        });
+
+        input.addEventListener('input', () => {
+            if (input.value) {
+                form_input.classList.add('not-empty');
+            } else {
+                form_input.classList.remove('not-empty');
+            }
+        });
+    })
+}
+
+function resetInputs(form) {
+    if (!form) return;
+
+    const form_inputs = form.querySelectorAll('.form-input');
+
+    if (!form_inputs.length) return;
+
+    form_inputs.forEach((form_input) => {
+        form_input.classList.remove('focus');
+        form_input.classList.remove('not-empty');
+    });
 }
 
 function saveUtmParams() {
@@ -149,5 +189,5 @@ function closePopup() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    initForms(), saveUtmParams();
+    initForms(), saveUtmParams(), initCustomInputs();
 });
