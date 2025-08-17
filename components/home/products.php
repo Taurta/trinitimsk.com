@@ -23,7 +23,7 @@ global $fields;
                             <div class="products-tab-content">
                                 <div class="products-tab-text">
                                     <?= $product['text']; ?>
-                                    <button>Заказать</button>
+                                    <button onclick="openPopup('popup-form')">Заказать</button>
                                 </div>
                                 <? if ($product['imgs']) : ?>
                                     <div class="products-tab-slider-wrapper">

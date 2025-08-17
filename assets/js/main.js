@@ -43,7 +43,7 @@ function initForm(e) {
                   e.classList.remove("disabled"),
                   e.reset(),
                   resetInputs(e),
-                  closePopup())
+                  closePopups())
                 : showNotification(r.message, "error");
         });
 }
@@ -154,40 +154,49 @@ function showNotification(e, t = "success", o = 3e3) {
         }, o);
 }
 
-function openPopup(e, t = !1) {
-    const o = document.getElementById("popup-root");
-    (o.innerHTML = ""), (o.style.display = "flex");
-    const n = document.createElement("div");
-    n.className = "popup-backdrop";
-    const s = document.createElement("div");
-    (s.className = "popup-modal"), t && s.classList.add("fullscreen");
-    const i = document.createElement("div");
-    (i.className = "popup-close"), (i.onclick = closePopup), n.appendChild(i);
-    const c = e.cloneNode(!0);
-    s.appendChild(c),
-        n.appendChild(s),
-        o.appendChild(n),
-        requestAnimationFrame(() => {
-            n.classList.add("visible"), s.classList.add("visible");
-        }),
-        n.addEventListener("click", (e) => {
-            e.target === n && closePopup();
+function initPopups() {
+    const popups = document.querySelector(".popups");
+
+    if (!popups) return;
+
+    const bg = popups.querySelector(".popups-bg");
+
+    if (bg) {
+        bg.addEventListener("click", () => {
+            closePopups();
         });
+    }
 }
 
-function closePopup() {
-    const e = document.getElementById("popup-root"),
-        t = e.querySelector(".popup-backdrop"),
-        o = e.querySelector(".popup-modal");
-    t && o
-        ? (t.classList.remove("visible"),
-          o.classList.remove("visible"),
-          setTimeout(() => {
-              (e.style.display = "none"), (e.innerHTML = "");
-          }, 300))
-        : ((e.style.display = "none"), (e.innerHTML = ""));
+function openPopup(id) {
+    const popups = document.querySelector(".popups");
+
+    if (!popups) return;
+
+    closePopups();
+
+    const popup = popups.querySelector("#" + id);
+    if (popup) {
+        popup.classList.add("open");
+        popups.classList.add("open");
+    }
+}
+
+function closePopups() {
+    const popups = document.querySelector(".popups");
+    if (!popups) return;
+
+    const items = popups.querySelectorAll(".popup");
+
+    if (items?.length) {
+        items.forEach((popup) => {
+            popup.classList.remove("open");
+        });
+    }
+
+    popups.classList.remove("open");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    initForms(), saveUtmParams(), initCustomInputs();
+    initForms(), initPopups(), saveUtmParams(), initCustomInputs();
 });

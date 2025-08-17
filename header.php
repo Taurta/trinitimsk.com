@@ -24,16 +24,16 @@ $lang = get_site_language();
 				</a>
 			</div>
 			<div class="menu">
-				<div class="menu-item" onclick="smoothScrollToElement('#about', 20)">
+				<div class="menu-item" onclick="smoothScrollToElement('#about', 40)">
 					<?= $lang == 'en_US' ? 'About us' : 'О нас' ?>
 				</div>
-				<div class="menu-item" onclick="smoothScrollToElement('#products', 20)">
+				<div class="menu-item" onclick="smoothScrollToElement('#products', 40)">
 					<?= $lang == 'en_US' ? 'Items' : 'Товары' ?>
 				</div>
-				<div class="menu-item" onclick="smoothScrollToElement('#cases', 0)">
+				<div class="menu-item" onclick="smoothScrollToElement('#services', 40)">
 					<?= $lang == 'en_US' ? 'Services' : 'Услуги' ?>
 				</div>
-				<div class="menu-item" onclick="smoothScrollToElement('#cases', 0)">
+				<div class="menu-item" onclick="smoothScrollToElement('#footer', 0)">
 					<?= $lang == 'en_US' ? 'Contacts' : 'Контакты' ?>
 				</div>
 			</div>

@@ -7,7 +7,7 @@ global $fields;
 <section id="form">
     <div class="container form-container">
         <h2>Оставьте ваш номер телефона —<br>менеджеры помогут с оптимальным выбором и расчетами.</h2>
-        <form class="js-request">
+        <form class="js-request" data-action="">
             <div class="form-input">
                 <div class="form-input-label">
                     Имя
@@ -59,6 +59,7 @@ global $fields;
 <style>
 #form {
     padding: 45px 0 75px;
+    background-image: -webkit-linear-gradient(top, rgba(2, 3, 18, 0), rgb(1, 3, 17));
 }
 
 #form h2 {
@@ -68,6 +69,8 @@ global $fields;
     margin-bottom: 40px;
     text-align: center;
     max-width: 560px;
+    position: relative;
+    z-index: 10;
 }
 
 .form-container {
@@ -81,6 +84,8 @@ global $fields;
 .form-container form {
     width: 100%;
     max-width: 560px;
+    position: relative;
+    z-index: 10;
 }
 
 #form button {
@@ -88,24 +93,11 @@ global $fields;
     width: 100%;
 }
 
-.form-text {
-    margin-top: 30px;
-    font-size: 14px;
-    line-height: 1.55;
-    text-align: center;
-    max-width: 560px;
-}
-
-.form-text a {
-    color: var(--text);
-    font-weight: 600;
-}
-
 .form-bg {
     position: absolute;
     opacity: 0.1;
     width: 100vw;
-    z-index: -1;
+    z-index: 0;
     top: -8vw;
 }
 </style>

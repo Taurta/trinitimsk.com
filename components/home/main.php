@@ -10,7 +10,7 @@ global $fields;
             <?= $fields['main_title']; ?>
         </h1>
         <div class="main-order-wrapper">
-            <button>
+            <button onclick="openPopup('popup-form')">
                 <?= $fields['main_btn_text']; ?>
             </button>
             <div class="main-order-text">
