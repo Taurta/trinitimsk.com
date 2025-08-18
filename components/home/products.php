@@ -2,6 +2,7 @@
 // Товары на главной
 
 global $fields;
+$lang = get_site_language();
 ?>
 
 <section id="products">
@@ -23,7 +24,7 @@ global $fields;
                             <div class="products-tab-content">
                                 <div class="products-tab-text">
                                     <?= $product['text']; ?>
-                                    <button onclick="openPopup('popup-form')">Заказать</button>
+                                    <button onclick="openPopup('popup-form')"><?= $lang == 'en_US' ? 'Order' : 'Заказать' ?></button>
                                 </div>
                                 <? if ($product['imgs']) : ?>
                                     <div class="products-tab-slider-wrapper">

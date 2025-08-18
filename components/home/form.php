@@ -2,15 +2,28 @@
 // Форма на главной
 
 global $fields;
+$lang = get_site_language();
 ?>
 
 <section id="form">
     <div class="container form-container">
-        <h2>Оставьте ваш номер телефона —<br>менеджеры помогут с оптимальным выбором и расчетами.</h2>
+          <? if ($lang == 'en_US') : ?>
+                <h2>
+                    Leave your phone number<br>
+                    and outr managers will help you with calculating the prices<br>
+                    and choosing the best option for you.
+                </h2>
+            <? else : ?>
+                <h2>
+                    Оставьте ваш номер телефона —<br>
+                    менеджеры помогут с оптимальным выбором и расчетами.
+                </h2>
+            <? endif; ?>
+
         <form class="js-request" data-action="">
             <div class="form-input">
                 <div class="form-input-label">
-                    Имя
+                    <?= $lang == 'en_US' ? 'Name' : 'Имя' ?>
                 </div>
                 <input type="text" name="name">
             </div>
@@ -25,27 +38,44 @@ global $fields;
             </div>
             <div class="form-input">
                 <div class="form-input-label">
-                    Электронная почта
+                    <?= $lang == 'en_US' ? 'Email' : 'Электронная почта' ?>
                 </div>
                 <input type="email" name="email">
             </div>
             <div class="form-select">
                 <div class="form-select-label">
-                    Выберите интересующую вас систему
+                    <?= $lang == 'en_US' ? 'Select the system you are interested in' : 'Выберите интересующую вас систему' ?>
                 </div>
                 <select name="product">
-                    <option value="Гардеробные системы">Гардеробные системы</option>
-                    <option value="Гардеробы Magrus">Гардеробы Magrus</option>
-                    <option value="Конвейерные системы">Конвейерные системы</option>
-                    <option value="Системы для хранения">Системы для хранения</option>
-                    <option value="Гардероб для дома">Гардероб для дома</option>
-                    <option value="Столешницы">Столешницы</option>
+                    <option value="Гардеробные системы">
+                        <?= $lang == 'en_US' ? 'Wardrobe systems' : 'Гардеробные системы' ?>
+                    </option>
+                    <option value="Гардеробы Magrus">
+                        <?= $lang == 'en_US' ? 'MAGRUS Wardrobes' : 'Гардеробы Magrus' ?>
+                    </option>
+                    <option value="Конвейерные системы">
+                        <?= $lang == 'en_US' ? 'Conveyor systems' : 'Конвейерные системы' ?>
+                    </option>
+                    <option value="Системы для хранения">
+                         <?= $lang == 'en_US' ? 'Systems for storaging' : 'Системы для хранения' ?>
+                    </option>
+                    <option value="Гардероб для дома">
+                        <?= $lang == 'en_US' ? 'House wardrobes' : 'Гардероб для дома' ?>
+                    </option>
+                    <option value="Столешницы">
+                        <?= $lang == 'en_US' ? 'Tabletops' : 'Столешницы' ?>
+                    </option>
                 </select>
             </div>
-            <button type="submit">Заказать звонок</button>
+            <button type="submit"><?= $lang == 'en_US' ? 'Order a call' : 'Заказать звонок' ?></button>
             <p class="form-text">
-                Нажимая на кнопку, вы даете согласие на обработку персональных данных<br>
-                и соглашаетесь с <a href="/" target="_blank">политикой конфиденциальности</a>
+                <? if ($lang == 'en_US') : ?>
+                    By pressing this button you give the permission to processing your personal<br>
+                    data and <a href="/" target="_blank">accept the Privacy Policy</a>
+                <? else : ?>
+                    Нажимая на кнопку, вы даете согласие на обработку персональных данных<br>
+                    и соглашаетесь с <a href="/" target="_blank">политикой конфиденциальности</a>
+                <? endif; ?>
             </p>
         </form>
         <img class="form-bg" src="<?= get_stylesheet_directory_uri() . '/assets/imgs/form-bg.png' ?>" alt="bg">
