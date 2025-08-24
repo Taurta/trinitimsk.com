@@ -7,7 +7,7 @@ global $fields;
 <section id="about">
     <div class="container about-container">
         <div class="about-text">
-            <img src="<?= get_stylesheet_directory_uri() ?>/assets/imgs/green-logo.png" alt="Triniti">
+            <img src="<?= get_stylesheet_directory_uri() ?>/assets/imgs/green-logo.png" alt="Triniti" class="about-logo">
             <div class="about-text-line"></div>
             <p><?= $fields['about_text']; ?></p>
         </div>
@@ -108,5 +108,11 @@ global $fields;
     .about-card p {
         font-size: 15px;
         font-weight: 300;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .about-logo {
+            width: 150px;
+        }
     }
 </style>

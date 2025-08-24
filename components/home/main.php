@@ -10,7 +10,7 @@ global $fields;
             <?= $fields['main_title']; ?>
         </h1>
         <div class="main-order-wrapper">
-            <button onclick="openPopup('popup-form')">
+            <button onclick="openPopup('popup-form')" class="desktop">
                 <?= $fields['main_btn_text']; ?>
             </button>
             <div class="main-order-text">
@@ -39,6 +39,9 @@ global $fields;
                 </div>
             </div>
         <? endif; ?>
+        <button onclick="openPopup('popup-form')" class="mobile" style="margin: 0 auto;">
+            <?= $fields['main_btn_text']; ?>
+        </button>
         <div class="cloud" style="width: 524px; left: -100px; top: 0;"></div>
         <div class="cloud" style="width: 531px; right: -100px; top: 170px;"></div>
     </div>
@@ -185,4 +188,42 @@ global $fields;
     #main .main-slider-wrapper .main-slider-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
         background-color: #b5eeba;
     }
+
+@media screen and (max-width: 1200px) {
+    #main {
+        background-size: 140% auto;
+        background-position: center 35px;
+        min-height: auto;
+    }
+    #main h1 {
+        font-size: 24px;
+        line-height: 26px;
+        text-align: center;
+    }
+
+    .main-container {
+        padding-top: 100px;
+    }
+
+    .main-order-wrapper {
+        margin-top: 14px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-order-text {
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+    }
+
+    .main-slider-wrapper {
+        margin-top: 10px;
+        margin-bottom: 60px;
+    }
+
+    .main-slider {
+        height: 200px;
+    }
+}
 </style>

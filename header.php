@@ -23,7 +23,7 @@ $lang = get_site_language();
 					<img src="<?= getLogoUrl(); ?>" alt="logo">
 				</a>
 			</div>
-			<div class="menu">
+			<div class="menu desktop">
 				<div class="menu-item" onclick="smoothScrollToElement('#about', 40)">
 					<?= $lang == 'en_US' ? 'About us' : 'О нас' ?>
 				</div>
@@ -37,7 +37,7 @@ $lang = get_site_language();
 					<?= $lang == 'en_US' ? 'Contacts' : 'Контакты' ?>
 				</div>
 			</div>
-			<div class="header-info">
+			<div class="header-info desktop">
 				<div class="langs">
 					<? if ($lang == 'en_US') :?>
 						<a href="/">RU</a>
@@ -55,6 +55,11 @@ $lang = get_site_language();
 						sale.triniti@yandex.ru
 					</a>
 				</div>
+			</div>
+			<div class="menu-btn mobile">
+				<span></span>
+				<span></span>
+				<span></span>
 			</div>
 		</div>
 
