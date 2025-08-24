@@ -1,8 +1,9 @@
-function smoothScrollToElement(e, t = 0, o = "smooth") {
+function smoothScrollToElement(e, t = 0, mm = false, o = "smooth") {
     const n = document.querySelector(e);
     if (!n) return;
     const s = n.getBoundingClientRect().top + window.pageYOffset - t;
     window.scrollTo({ top: s, behavior: o });
+    if (mm) toggleMenu();
 }
 
 function initForm(e) {
@@ -19,12 +20,7 @@ function initForm(e) {
                 s = e.querySelector('input[name="name"]');
             s && !s.value?.length && n.push(s);
             const i = e.querySelector(".phone-input-wrapper");
-            if (
-                (i &&
-                    !isValidPhoneNumber(i) &&
-                    n.push(i.querySelector("input")),
-                n.length)
-            )
+            if ((i && !isValidPhoneNumber(i) && n.push(i.querySelector("input")), n.length))
                 return (
                     showNotification("Укажите обязательные поля", "error"),
                     void n.forEach((e) => {
@@ -57,58 +53,51 @@ function initForms() {
 }
 
 function initCustomInputs() {
-    const form_inputs = document.querySelectorAll('.form-input');
+    const form_inputs = document.querySelectorAll(".form-input");
 
     if (!form_inputs.length) return;
 
     form_inputs.forEach((form_input) => {
-        const input = form_input.querySelector('input');
+        const input = form_input.querySelector("input");
 
-        input.addEventListener('focusin', () => {
-            form_input.classList.add('focus');
+        input.addEventListener("focusin", () => {
+            form_input.classList.add("focus");
         });
 
-        input.addEventListener('focusout', () => {
-            form_input.classList.remove('focus');
+        input.addEventListener("focusout", () => {
+            form_input.classList.remove("focus");
         });
 
-        input.addEventListener('input', () => {
+        input.addEventListener("input", () => {
             if (input.value) {
-                form_input.classList.add('not-empty');
+                form_input.classList.add("not-empty");
             } else {
-                form_input.classList.remove('not-empty');
+                form_input.classList.remove("not-empty");
             }
         });
-    })
+    });
 }
 
 function resetInputs(form) {
     if (!form) return;
 
-    const form_inputs = form.querySelectorAll('.form-input');
+    const form_inputs = form.querySelectorAll(".form-input");
 
     if (!form_inputs.length) return;
 
     form_inputs.forEach((form_input) => {
-        form_input.classList.remove('focus');
-        form_input.classList.remove('not-empty');
+        form_input.classList.remove("focus");
+        form_input.classList.remove("not-empty");
     });
 }
 
 function saveUtmParams() {
     const e = new URLSearchParams(window.location.search),
         t = {};
-    [
-        "utm_source",
-        "utm_medium",
-        "utm_campaign",
-        "utm_term",
-        "utm_content",
-    ].forEach((o) => {
+    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach((o) => {
         e.has(o) && (t[o] = e.get(o));
     }),
-        Object.keys(t).length > 0 &&
-            localStorage.setItem("utm_data", JSON.stringify(t));
+        Object.keys(t).length > 0 && localStorage.setItem("utm_data", JSON.stringify(t));
 }
 
 function appendUtmToFormData(e) {
@@ -136,9 +125,7 @@ function isValidPhoneNumber(e) {
 function getFullPhoneNumber(e) {
     if (!e) return;
     const t = e.querySelector('input[name="phone"]');
-    return `${
-        e.querySelector(".selected-option").dataset.code
-    }${t.value.replace(/\D/g, "")}`;
+    return `${e.querySelector(".selected-option").dataset.code}${t.value.replace(/\D/g, "")}`;
 }
 
 function showNotification(e, t = "success", o = 3e3) {
@@ -195,6 +182,18 @@ function closePopups() {
     }
 
     popups.classList.remove("open");
+}
+
+function toggleMenu() {
+    const header = document.querySelector("header");
+    const menu = document.querySelector(".mobile-menu");
+    const btn = document.querySelector(".menu-btn");
+
+    if (!menu || !btn) return;
+
+    header.classList.toggle("open-menu");
+    menu.classList.toggle("open");
+    btn.classList.toggle("active");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
