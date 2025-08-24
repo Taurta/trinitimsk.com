@@ -739,3 +739,20 @@ form.disabled {
 		font-size: 12px;
 	}
 }
+
+@media screen and (max-width: 480px) {
+	.footer-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.footer-right {
+		margin-top: 20px;
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+
+	.footer-contacts {
+		align-items: center;
+	}
+}

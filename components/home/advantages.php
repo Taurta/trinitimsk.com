@@ -148,4 +148,16 @@ global $fields;
 		}
 
 	}
+
+	@media screen and (max-width: 480px) {
+		#advantages h2 {
+			text-align: center;
+			max-width: 220px;
+			margin: 0 auto 30px;
+		}
+
+		.advantages-container {
+			grid-template-columns: 1fr;
+		}
+	}
 </style>

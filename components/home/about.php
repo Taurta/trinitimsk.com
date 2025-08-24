@@ -170,4 +170,31 @@ global $fields;
 			left: 20px;
 		}
 	}
+
+	@media screen and (max-width: 480px) {
+		.about-text p {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		.about-cards {
+			grid-template-columns: 1fr;
+		}
+
+		.about-card {
+			padding: 23px 64px;
+			position: relative;
+		}
+
+		.about-card img {
+			position: absolute;
+			top: 20px;
+			left: 15px;
+			height: 30px;
+		}
+
+		.about-card p {
+			margin-bottom: 0;
+		}
+	}
 </style>

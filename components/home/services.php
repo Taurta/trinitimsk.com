@@ -124,4 +124,14 @@ global $fields;
 			margin-top: auto;
 		}
 	}
+
+	@media screen and (max-width: 480px) {
+		#services h2 {
+			line-height: 1;
+			margin-bottom: 30px;
+		}
+		.services-container {
+			grid-template-columns: 1fr;
+		}
+	}
 </style>
