@@ -711,4 +711,31 @@ form.disabled {
 		align-items: flex-end;
 		gap: 20px;
 	}
+
+	/*  */
+	.popups-bg {
+		background-color: var(--bg)
+	}
+
+	.popups {
+		align-items: flex-end;
+	}
+
+	.popups-close {
+		top: 10px;
+		right: 10px;
+		height: 36px;
+		width: 36px;
+		font-size: 20px;
+		color: var(--text);
+	}
+
+	#popup-form {
+		height: calc(100% - 50px);
+		padding: 20px;
+	}
+
+	.form-text {
+		font-size: 12px;
+	}
 }
