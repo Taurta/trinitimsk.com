@@ -29,22 +29,34 @@ $lang = get_site_language();
 					<? endif; ?>
 				</div>
 				<div class="footer-contacts">
-					<a class="footer-phone" href="<?= format_phone_to_tel('+7 (905) 510-75-75'); ?>">
+					<a class="footer-phone" href="<?= format_phone_to_tel('+7 (905) 510-75-75'); ?>" onclick="ym(96215171,'reachGoal','nomer')">
 						+7 (905) 510-75-75
 					</a>
-					<a class="footer-email" href="mailto:sale.triniti@yandex.ru">
+					<a class="footer-email" href="mailto:sale.triniti@yandex.ru" onclick="ym(96215171,'reachGoal','email')">
 						sale.triniti@yandex.ru
 					</a>
-					<a class="privacy-policy desktop" href="/" target="_blank">
-						<?= $lang == 'en_US' ? 'Privacy Policy' : 'Политика конфиденциальности' ?>
-					</a>
+					<? if ($lang == 'en_US'): ?>
+						<a class="privacy-policy desktop" href="/en/privacy-policy" target="_blank">
+							Privacy Policy
+						</a>
+					<? else: ?>
+						<a class="privacy-policy desktop" href="/privacy-policy" target="_blank">
+							Политика конфиденциальности
+						</a>
+					<? endif; ?>
 				</div>
 			</div>
 		</div>
 		<div class="container mobile" style="text-align: center">
-			<a class="privacy-policy" href="/" target="_blank">
-				<?= $lang == 'en_US' ? 'Privacy Policy' : 'Политика конфиденциальности' ?>
-			</a>
+			<? if ($lang == 'en_US'): ?>
+				<a class="privacy-policy" href="/en/privacy-policy" target="_blank">
+					Privacy Policy
+				</a>
+			<? else: ?>
+				<a class="privacy-policy" href="/privacy-policy" target="_blank">
+					Политика конфиденциальности
+				</a>
+			<? endif; ?>
 		</div>
 	</div>
 	<img class="footer-bg" src="<?= get_stylesheet_directory_uri() . '/assets/imgs/footer-bg.png' ?>" alt="">
@@ -56,7 +68,7 @@ $lang = get_site_language();
 			✕
 		</div>
 	</div>
-	<form id="popup-form" class="popup js-request" data-action="">
+	<form id="popup-form" class="popup js-request" data-action="Zvonok">
 		<div class="popup-form-title">
 			<?= $lang == 'en_US' ? 'Leave your phone number' : 'Оставьте ваш номер телефона' ?>
 		</div>
@@ -88,10 +100,10 @@ $lang = get_site_language();
 		<p class="form-text">
 			<? if ($lang == 'en_US'): ?>
 				By pressing this button you give the permission to processing your personal<br>
-				data and <a href="/" target="_blank">accept the Privacy Policy</a>
+				data and <a href="/en/privacy-policy" target="_blank">accept the Privacy Policy</a>
 			<? else: ?>
 				Нажимая на кнопку, вы даете согласие на обработку персональных данных<br>
-				и соглашаетесь с <a href="/" target="_blank">политикой конфиденциальности</a>
+				и соглашаетесь с <a href="/privacy-policy" target="_blank">политикой конфиденциальности</a>
 			<? endif; ?>
 		</p>
 	</form>

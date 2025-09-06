@@ -20,7 +20,7 @@ $lang = get_site_language();
 			</h2>
 		<? endif; ?>
 
-		<form class="js-request" data-action="">
+		<form class="js-request" data-action="zayavka">
 			<div class="form-input">
 				<div class="form-input-label">
 					<?= $lang == 'en_US' ? 'Name' : 'Имя' ?>

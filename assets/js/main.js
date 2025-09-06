@@ -35,7 +35,7 @@ function initForm(e) {
                 r = await c.json();
             r.success
                 ? (showNotification("Заявка успешно отправлена!", "success"),
-                  //ym(101143679, "reachGoal", e.getAttribute("data-action")),
+                  ym(96215171, "reachGoal", e.getAttribute("data-action")),
                   e.classList.remove("disabled"),
                   e.reset(),
                   resetInputs(e),

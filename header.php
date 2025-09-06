@@ -13,6 +13,20 @@ $lang = get_site_language();
 	<meta name="yandex-verification" content="999af3ddc85001e1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function(m,e,t,r,i,k,a){
+			m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			m[i].l=1*new Date();
+			for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+			k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+		})(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+		ym(96215171, 'init', {webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/96215171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+	<meta name="yandex-verification" content="b525152e6cb791ec" />
 </head>
 
 <body <?php body_class(); ?>>
@@ -49,10 +63,10 @@ $lang = get_site_language();
 					<? endif; ?>
 				</div>
 				<div class="header-contacts">
-					<a class="header-phone" href="<?= format_phone_to_tel('+7 (905) 510-75-75'); ?>">
+					<a class="header-phone" href="<?= format_phone_to_tel('+7 (905) 510-75-75'); ?>" onclick="ym(96215171,'reachGoal','nomer')">
 						+7 (905) 510-75-75
 					</a>
-					<a class="header-email" href="mailto:sale.triniti@yandex.ru">
+					<a class="header-email" href="mailto:sale.triniti@yandex.ru" onclick="ym(96215171,'reachGoal','email')">
 						sale.triniti@yandex.ru
 					</a>
 				</div>
@@ -82,10 +96,10 @@ $lang = get_site_language();
 				</div>
 				<div class="header-info mobile">
 					<div class="header-contacts">
-						<a class="header-phone" href="<?= format_phone_to_tel('+7 (905) 510-75-75'); ?>">
+						<a class="header-phone" href="<?= format_phone_to_tel('+7 (905) 510-75-75'); ?>" onclick="ym(96215171,'reachGoal','nomer')">
 							<img src="<?= get_stylesheet_directory_uri() . '/assets/imgs/phone.svg' ?>" alt="phone">
 						</a>
-						<a class="header-email" href="mailto:sale.triniti@yandex.ru">
+						<a class="header-email" href="mailto:sale.triniti@yandex.ru" onclick="ym(96215171,'reachGoal','email')">
 							<img src="<?= get_stylesheet_directory_uri() . '/assets/imgs/email.svg' ?>" alt="email">
 						</a>
 					</div>
