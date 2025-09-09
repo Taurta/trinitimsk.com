@@ -27,8 +27,8 @@ global $fields;
 				</div>
 				<div class="main-slider swiper">
 					<div class="swiper-wrapper">
-						<? foreach ($fields['main_imgs'] as $img): ?>
-							<img src="<?= $img; ?>" alt="slide" class="swiper-slide">
+						<? foreach ($fields['main_imgs'] as $key => $img): ?>
+							<img src="<?= $img; ?>" <?= $key == 0 ? 'fetchpriority="high"' : 'loading="lazy"' ?> alt="slide" class="swiper-slide">
 						<? endforeach; ?>
 					</div>
 				</div>
